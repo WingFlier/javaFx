@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -17,12 +18,12 @@ public class DialogTxt {
     private Scene scene;
 
     @FXML
-    public Label label_txt = new Label();
+    public Text label_txt;
 
-    public DialogTxt() {
+   /* public DialogTxt() {
+        FXMLLoader loader = new  FXMLLoader(getClass().getResource("fxml/dialog.fxml"));
+        loader.setController(this);
         try {
-            FXMLLoader loader = FXMLLoader.load(getClass().getResource("/resources/dialog.fxml"));
-            loader.setController(this);
             root = (Parent) loader.load();
             scene = new Scene(root, 400, 300);
             stage.setScene(scene);
@@ -30,10 +31,16 @@ public class DialogTxt {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 
-    public void redirectDialog(Stage stage, File file) {
+    public void redirectDialog(Stage stage, String file) {
+        stage.setTitle("text");
+        stage.setScene(scene);
+        label_txt.setText(String.valueOf(file));
+        stage.hide();
+        stage.show();
+
 
     }
 }

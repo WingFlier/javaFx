@@ -9,16 +9,18 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Controller controller = new Controller();
-        //controller.launchController(primaryStage);
-        //FXMLLoader loader =
-        // loader.load(getClass().getResource("sample.fxml"));
-        //loader.setController(this);
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/sample.fxml"));
+        primaryStage.setTitle("Server send");
+        primaryStage.setScene(new Scene(root, 300, 300));
+
+        primaryStage.setResizable(false);
+
         primaryStage.show();
+        //Controller controller = new Controller();
+        //controller.launchController(primaryStage);
+
 
     }
 

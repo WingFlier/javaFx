@@ -1,9 +1,11 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -20,33 +22,29 @@ public class Controller {
     private Parent parent;
     private Scene scene;
     private Stage stage;
+    private DialogTxt txt;
 
-
-  /*  public Controller() {
-        FXMLLoader fxmlLoader = null;
-
+   /* public Controller() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/sample.fxml"));
+        fxmlLoader.setController(this);
         try {
-            parent =   fxmlLoader.load(getClass().getResource("sample.fxml"));
-            scene = new Scene(parent, 300 , 275 );
-            fxmlLoader.setController(this);
-
-
+            parent = (Parent) fxmlLoader.load();
+            scene = new Scene(parent, 600, 400);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }*/
 
-
-
-  /*  public void launchController(Stage stage){
+    public void launchController(Stage stage) {
         this.stage = stage;
-
+        stage.setTitle("User Login");
         stage.setScene(scene);
-        stage.setTitle("title");
-        stage.setResizable(false);
+        stage.setResizable(true);
+        stage.hide();
         stage.show();
-    }*/
+    }
 
+    @FXML
     public void createFile(ActionEvent actionEvent) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Wingfly\\Desktop\\forsend.txt"));
@@ -69,8 +67,16 @@ public class Controller {
                 FileWriter writer1 = new FileWriter("C:\\Users\\Wingfly\\Desktop\\justadded.txt");
                 writer1.write(readFile(file));
                 writer1.flush();
-                // DialogTxt dialogTxt  = new DialogTxt();
-                //dialogTxt.redirectDialog(stage, file);
+                System.out.println(readFile(file));
+                Label label = new Label();
+                label.setPrefSize(413, 212);
+                label.setLayoutX(325.0);
+                label.setLayoutY(27.0);
+                label.setAlignment(Pos.TOP_LEFT);
+                label.setText("hello");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("hello");
+
 
 
             } catch (IOException e) {
@@ -112,4 +118,6 @@ public class Controller {
     public void open(ActionEvent actionEvent) {
         chooseFile("Choose a  file", open);
     }
+
+
 }
